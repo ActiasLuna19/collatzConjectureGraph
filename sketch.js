@@ -1,14 +1,14 @@
 //variable declariation
-let num = 25; //The number given
+let num = 20; //The number given
 let calcNum = num; //The number used in conjecture, the first term is the same as the given number
 const failsafe = 100; //the failsafe so the hardrive wont fry
 let term = [num]; //What term of the conjecture we are on, and the value of that term. Starts with the given number as term 0
 
-let dotSize = 10;
+let dotSize = 12;
 let xAxisMultipler = 40; //The multipler used in the x axis
 let yAxisMultipler = 10; //The multipler used in the y axis
-let screenWidth = 1500;
-let screenHeight = 1000;
+let screenWidth = 1400;
+let screenHeight = 900;
 
 //calculating the collatz conjecture for the given number
 while (term.length <= failsafe && calcNum != 1) {
@@ -25,11 +25,11 @@ while (term.length <= failsafe && calcNum != 1) {
 }
 
 //changing the multipler(s) depending on how many terms or the highest term value
-while ((term.length * xAxisMultipler) >= screenWidth) {
+while ((term.length * xAxisMultipler) + 175 >= screenWidth) {
   xAxisMultipler -= 1;
 }
 
-while((Math.max(...term) * yAxisMultipler) >= screenHeight) {
+while((Math.max(...term) * yAxisMultipler) + 175 >= screenHeight) {
   yAxisMultipler -= 1;
 }
 
@@ -65,5 +65,4 @@ function draw() {
 }
 
 //Checking the terms
-console.log(term.length)
 console.log(term)
