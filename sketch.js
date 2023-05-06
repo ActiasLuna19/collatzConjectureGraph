@@ -1,5 +1,5 @@
 //variable declariation
-let num = 25; //The number given
+let num = prompt("Please enter a number here"); //The number given
 let calcNum = num; //The number used in conjecture, the first term is the same as the given number
 const failsafe = 100; //the failsafe so the hardrive wont fry
 let term = [num]; //What term of the conjecture we are on, and the value of that term. Starts with the given number as term 0
