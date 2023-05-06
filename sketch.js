@@ -1,5 +1,5 @@
 //variable declariation
-let num = 20; //The number given
+let num = 25; //The number given
 let calcNum = num; //The number used in conjecture, the first term is the same as the given number
 const failsafe = 100; //the failsafe so the hardrive wont fry
 let term = [num]; //What term of the conjecture we are on, and the value of that term. Starts with the given number as term 0
@@ -7,8 +7,8 @@ let term = [num]; //What term of the conjecture we are on, and the value of that
 let dotSize = 12;
 let xAxisMultipler = 40; //The multipler used in the x axis
 let yAxisMultipler = 10; //The multipler used in the y axis
-let screenWidth = 1400;
-let screenHeight = 900;
+let screenWidth = 1450;
+let screenHeight = 850;
 
 //calculating the collatz conjecture for the given number
 while (term.length <= failsafe && calcNum != 1) {
