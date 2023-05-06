@@ -6,6 +6,7 @@ let term = [num]; //What term of the conjecture we are on, and the value of that
 
 let dotSize = 10;
 let xAxisMultipler = 40; //The multipler used in the x axis
+let yAxisMultipler = 10;
 
 //calculating the collatz conjecture for the given number
 while (term.length <= failsafe && calcNum != 1) {
@@ -37,11 +38,17 @@ function draw() {
   line(75, 100, 75, 625); //top line
   line(75, 625, (term.length * xAxisMultipler) + 75, 625); //bottom line
   
+  
   for(let i = 0; i <= term.length; i++) {
-    ellipse(75 + (i * xAxisMultipler), 625, dotSize);
+    //the line connecting the dots
+    line(75 + (i * xAxisMultipler), 625 - (term[i] * yAxisMultipler), 75 + (( i+ 1) * xAxisMultipler), 625 - (term[i + 1] * yAxisMultipler));
+    
+    //The dot, term in relation to term value
+    ellipse(75 + (i * xAxisMultipler), 625 - (term[i] * yAxisMultipler), dotSize);
   }
   
 }
 
+//Checking the terms
 console.log(term.length)
 console.log(term)
