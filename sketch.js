@@ -7,8 +7,8 @@ let term = [num]; //What term of the conjecture we are on, and the value of that
 let dotSize = 14;
 let xAxisMultipler = 40; //The multipler used in the x axis
 let yAxisMultipler = 10; //The multipler used in the y axis
-let screenWidth = 1450;
-let screenHeight = 850;
+let graphWidth = 960;
+let graphLength = 675;
 
 //calculating the collatz conjecture for the given number
 while (term.length <= failsafe && calcNum != 1) {
@@ -24,54 +24,55 @@ while (term.length <= failsafe && calcNum != 1) {
   }
 }
 
+//variables in relation to the term
+let termMax = Math.max(...term); //Finds the highest term value
+
 //changing the multipler(s) depending on how many terms or the highest term value
-while ((term.length * xAxisMultipler) + 175 >= screenWidth) {
+while((termMax * yAxisMultipler) > graphLength) {
+  yAxisMultipler -= 1;
+}
+while((term.length * xAxisMultipler) > graphWidth) {
   xAxisMultipler -= 1;
 }
 
-while((Math.max(...term) * yAxisMultipler) + 175 >= screenHeight) {
-  yAxisMultipler -= 1;
-}
-
-//variables in relation to the term
-let termMax = Math.max(...term); //Finds the highest term value
-let xAxis = (term.length * xAxisMultipler); //the length added to the x-axis dependat on the term length
-let yAxis = (termMax * yAxisMultipler + 15); //the height added to the y-axis depensant on the highest term
-
 //setting up the canvas/ background
 function setup() {
-  createCanvas(screenWidth, screenHeight);
+  createCanvas(1450, 850);
 }
 
 function draw() {
   background(207, 255, 217);
   
-  textSize(20);
+  //The Header or Tittle
+  textSize(25);
   fill(0);
-  text('The Collatz Conjecture of ' + num, 100, 40);
+  text('The Collatz Conjecture of ' + num, graphWidth/3, 58);
   
-  //The graph
+  //The graph background
   fill(255);
-  rect(75, 100, xAxis, yAxis);
+  rect(75, 100, graphWidth, graphLength);
   
+  //The axes
   strokeWeight(5);
   fill(0);
-  line(75, 100, 75, yAxis + 100); //top line
-  line(75, yAxis + 100, xAxis + 75, yAxis + 100); //bottom line
+  line(75, 100, 75, graphLength + 100); // y-axis
+  line(75, graphLength + 100, graphWidth + 75, graphLength + 100); //x-axis
   
   for(let i = 0; i <= term.length; i++) {
     
     //the line connecting the dots
     strokeWeight(2);
-    line(75 + (i * xAxisMultipler), yAxis + 100 - (term[i] * yAxisMultipler), 75 + (( i+ 1) * xAxisMultipler), yAxis + 100 - (term[i + 1] * yAxisMultipler));
+    line(75 + (i * xAxisMultipler),  775 - (term[i] * yAxisMultipler), 75 + (( i+ 1) * xAxisMultipler), 775 - (term[i + 1] * yAxisMultipler));
     
     //The dot, term in relation to term value
     strokeWeight(1);
     fill(242, 188, 70);
-    ellipse(75 + (i * xAxisMultipler), yAxis + 100 - (term[i] * yAxisMultipler), dotSize);
+    ellipse(75 + (i * xAxisMultipler), 775 - (term[i] * yAxisMultipler), dotSize);
   }
   
 }
 
-//Checking the terms
+//Checking the variables
+console.log(yAxisMultipler)
+console.log(xAxisMultipler)
 console.log(term)
