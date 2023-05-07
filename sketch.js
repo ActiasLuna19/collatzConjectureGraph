@@ -5,10 +5,10 @@ const failsafe = 100; //the failsafe so the hardrive wont fry
 let term = [num]; //What term of the conjecture we are on, and the value of that term. Starts with the given number as term 0
 
 let dotSize = 14;
-let xAxisMultipler = 40; //The multipler used in the x axis
-let yAxisMultipler = 10; //The multipler used in the y axis
-let graphWidth = 960;
-let graphLength = 675;
+let xAxisMultipler = 40; //The multipler used in the x axis as the scale
+let yAxisMultipler = 10; //The multipler used in the y axis as the scale
+let graphWidth = 960; //The graph's base width
+let graphLength = 675; //The graph's base length
 
 //calculating the collatz conjecture for the given number
 while (term.length <= failsafe && calcNum != 1) {
@@ -37,7 +37,7 @@ while((term.length * xAxisMultipler) > graphWidth) {
 
 //setting up the canvas/ background
 function setup() {
-  createCanvas(1450, 850);
+  createCanvas(1450, 880);
 }
 
 function draw() {
