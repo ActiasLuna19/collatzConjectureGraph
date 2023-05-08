@@ -31,6 +31,11 @@ let aGraphY = 100; //alignment number for the graph on the y-axis
 let graphWidthAdd = graphWidth + aGraphX; //The additional numbers needed to allign the graph properly on the x-axis
 let graphLengthAdd = graphLength + aGraphY; //The additional numbers needed to allign the graph properly on the y-axis
 
+let barWidth = 350;
+let barLength = graphLength + 75;
+let aBarX = graphWidthAdd + 40;
+let aBarY = aGraphY - 75;
+
 //changing the multipler(s) depending on how many terms or the highest term value
 while((termMax * yAxisMultipler) > graphLength) {
   yAxisMultipler -= 1;
@@ -74,10 +79,16 @@ function draw() {
     ellipse(aGraphX + (i * xAxisMultipler), graphLengthAdd - (term[i] * yAxisMultipler), dotSize);
   }
   
-  //The bar on the right, with information
+  //The info bar on the right
   fill(247, 223, 178);
-  rect(1075, 25, 350, 750);
+  rect(aBarX, aBarY, barWidth, barLength);
   
+  fill(0);
+  textSize(25);
+  text("Info-bar", aBarX + barWidth/2.7, aBarY + 30);
+  
+  textSize(15);
+  text('Test', aBarX + 10, aBarY + 70);
 }
 
 //Checking the variables
