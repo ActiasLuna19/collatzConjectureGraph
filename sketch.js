@@ -20,10 +20,10 @@ while (term.length <= failsafe && calcNum != 1) {
 
 //variables in relation to the term, graph adjustments, and info bar
 let termMax = Math.max(...term); //Finds the highest term value
-let dotSize = 14;
 let xAxisMultipler = 40; //The multipler used in the x axis as the scale
 let yAxisMultipler = 10; //The multipler used in the y axis as the scale
 
+let dotSize = 14;
 let graphWidth = 960; //The graph's base width
 let graphLength = 675; //The graph's base length
 let aGraphX = 75; //alignment numbers for the graph on the x-axis
@@ -31,9 +31,9 @@ let aGraphY = 100; //alignment number for the graph on the y-axis
 let graphWidthAdd = graphWidth + aGraphX; //The additional numbers needed to allign the graph properly on the x-axis
 let graphLengthAdd = graphLength + aGraphY; //The additional numbers needed to allign the graph properly on the y-axis
 
-let barWidth = 350;
+let barWidth = 370;
 let barLength = graphLength + 75;
-let aBarX = graphWidthAdd + 40;
+let aBarX = graphWidthAdd + 25;
 let aBarY = aGraphY - 75;
 
 //changing the multipler(s) depending on how many terms or the highest term value
@@ -86,9 +86,6 @@ function draw() {
   fill(0);
   textSize(25);
   text("Info-bar", aBarX + barWidth/2.7, aBarY + 30);
-  
-  textSize(15);
-  text('Test', aBarX + 10, aBarY + 70);
 }
 
 //Checking the variables
