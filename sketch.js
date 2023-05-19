@@ -1,9 +1,9 @@
 //variables decloration for the visuals of the program (The graph, the info-bar, and the "reset" button)
-let termMax = Math.max(...term); //Finds the highest term value
+const termMax = Math.max(...term); //Finds the highest term value
 let xAxisMultipler = 40; //The multipler used in the x axis as the scale
 let yAxisMultipler = 10; //The multipler used in the y axis as the scale
 
-let dotSize = 14;
+const dotSize = 14;
 let graphWidth = 960; //The graph's base width
 let graphLength = 675; //The graph's base length
 let aGraphX = 75; //alignment numbers for the graph on the x-axis
@@ -11,14 +11,15 @@ let aGraphY = 100; //alignment number for the graph on the y-axis
 let graphWidthAdd = graphWidth + aGraphX; //The additional numbers needed to allign the graph properly on the x-axis
 let graphLengthAdd = graphLength + aGraphY; //The additional numbers needed to allign the graph properly on the y-axis
 
-let resButWidth = 200;
-let resButLength = 75;
-
 let barWidth = 370;
 let barLength = graphLength + 75;
 let aBarX = graphWidthAdd + 25;
 let aBarY = aGraphY - 75;
-let infoBarGen = 'The collatz conjectue, or otherwise known as the 3n+1 problem, is a famously unsolved math problem that states that every postive number being tested will eventualy become 1.';
+
+let resButWidth = 200;
+let resButLength = 50;
+let aButX = aBarX + (barWidth - resButWidth)/2; //alignment numbers for the button on the x-axis
+let aButY = barLength - 40; //alignment numbers for the nutton on the y-axis
 
 //changing the multipler(s) depending on how many terms or the highest term value
 while((termMax * yAxisMultipler) > graphLength) {
@@ -69,17 +70,22 @@ function draw() {
   
   fill(0);
   textSize(25);
-  text("Info-bar", aBarX + barWidth/2.7, aBarY + 30);
+  text("Info-bar", aBarX + barWidth/2.7, aBarY + 35);
   
   textSize(15);
-  text(infoBarGen, aBarX + 10, aBarY + 70);
+  text('Place-holder', aBarX + 10, aBarY + 70);
   
-  //the "reset" button on the bottom
-  fill(204, 102, 55);
-  rect(675, 800, resButWidth, resButLength);
+  //the "reset" button visuals on the bottom
+  fill(186, 240, 137);
+  rect(aButX, aButY, resButWidth, resButLength);
+  
+  fill(0);
+  textSize(20);
+  text('Test New Number', aButX + 20, aButY + 30);
 }
 
 //Checking the variables
 console.log(yAxisMultipler)
 console.log(xAxisMultipler)
 console.log(term)
+
