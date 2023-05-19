@@ -76,16 +76,21 @@ function draw() {
   text('Place-holder', aBarX + 10, aBarY + 70);
   
   //the "reset" button visuals on the bottom
-  fill(186, 240, 137);
+  if(mouseX >= aButX && mouseX <= aButX + resButWidth && mouseY >= aButY && mouseY <= aButY + resButLength) {
+    fill(171, 227, 86);
+  }
+  else {
+    fill(242, 188, 70);
+  }
+    
   rect(aButX, aButY, resButWidth, resButLength);
   
   fill(0);
   textSize(20);
-  text('Test New Number', aButX + 20, aButY + 30);
+  text('Test New Number', aButX + 20, aButY + 32);
 }
 
 //Checking the variables
 console.log(yAxisMultipler)
 console.log(xAxisMultipler)
 console.log(term)
-
