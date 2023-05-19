@@ -19,7 +19,7 @@ let aBarY = aGraphY - 75;
 let resButWidth = 200;
 let resButLength = 50;
 let aButX = aBarX + (barWidth - resButWidth)/2; //alignment numbers for the button on the x-axis
-let aButY = barLength - 40; //alignment numbers for the nutton on the y-axis
+let aButY = barLength - 40; //alignment numbers for the nutton on 
 
 //changing the multipler(s) depending on how many terms or the highest term value
 while((termMax * yAxisMultipler) > graphLength) {
@@ -29,7 +29,16 @@ while((term.length * xAxisMultipler) > graphWidth) {
   xAxisMultipler -= 1;
 }
 
-//setting up the canvas/ background
+//The parameters for the button, used to let the program know when the mouse is over the designated button
+function buttonParameters () {
+  this.mouseX = mouseX;
+  this.mouseY = mouseY;
+  
+  return (this.mouseX >= aButX && this.mouseX <= aButX + resButWidth && this.mouseY >= aButY && this.mouseY <= aButY + resButLength);
+
+}
+
+//setting up the canvas
 function setup() {
   createCanvas(1450, 880);
 }
@@ -76,7 +85,7 @@ function draw() {
   text('Place-holder', aBarX + 10, aBarY + 70);
   
   //the "reset" button visuals on the bottom
-  if(mouseX >= aButX && mouseX <= aButX + resButWidth && mouseY >= aButY && mouseY <= aButY + resButLength) {
+  if(buttonParameters()) {
     fill(171, 227, 86);
   }
   else {
@@ -89,6 +98,14 @@ function draw() {
   textSize(20);
   text('Test New Number', aButX + 20, aButY + 32);
 }
+
+//Checks to see if the button is clicked, and if it was then the page reloads (this will restart the program)
+function mouseClicked () {
+  if(buttonParameters) {
+    location.reload();
+  }
+}
+
 
 //Checking the variables
 console.log(yAxisMultipler)
