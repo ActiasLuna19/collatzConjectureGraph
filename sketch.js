@@ -3,7 +3,7 @@ const termMax = Math.max(...term); //Finds the highest term value
 let xAxisMultipler = 40; //The multipler used in the x axis as the scale
 let yAxisMultipler = 10; //The multipler used in the y axis as the scale
 
-const dotSize = 14;
+const dotSize = 14; //the size of the dots on the graph
 let graphWidth = 960; //The graph's base width
 let graphLength = 675; //The graph's base length
 let aGraphX = 75; //alignment numbers for the graph on the x-axis
@@ -15,11 +15,18 @@ let barWidth = 370;
 let barLength = graphLength + 75;
 let aBarX = graphWidthAdd + 25;
 let aBarY = aGraphY - 75;
+let aBarTextX = aBarX + 10;
+let aBarTextY = aBarY + 70;
+
+let termListVer; // multiplier used in listing the terms and their value verticaly
+let termListHorz = [0, 75, 150, 225]; //adjuster values needed to list the terms horzontaly
+let k;
 
 let resButWidth = 200;
 let resButLength = 50;
 let aButX = aBarX + (barWidth - resButWidth)/2; //alignment numbers for the button on the x-axis
-let aButY = barLength - 40; //alignment numbers for the nutton on 
+let aButY = barLength - 40; //alignment numbers for the button on the y-axis
+
 
 //changing the multipler(s) depending on how many terms or the highest term value
 while((termMax * yAxisMultipler) > graphLength) {
@@ -81,9 +88,21 @@ function draw() {
   textSize(25);
   text("Info-bar", aBarX + barWidth/2.7, aBarY + 35);
   
+  //Listing the terms and there value for the number being tested in the collatz conjecture
+  k = 0;
+  termListVer = 0;
   textSize(15);
-  text('Place-holder', aBarX + 10, aBarY + 70);
-  
+  for(let i= 0; i < term.length; i++) {  
+    
+    if(termListVer < 30) {
+      text((i + 1) + '. ' + term[i], aBarTextX + termListHorz[k], aBarTextY + (termListVer * 20));
+      termListVer++
+    }
+    else {
+      k++;
+      termListVer = 0;
+    }
+  }
   //the "reset" button visuals on the bottom
   if(buttonParameters()) {
     fill(171, 227, 86);
@@ -101,13 +120,13 @@ function draw() {
 
 //Checks to see if the button is clicked, and if it was then the page reloads (this will restart the program)
 function mouseClicked () {
-  if(buttonParameters) {
+  if(buttonParameters()) {
     location.reload();
   }
 }
 
 
 //Checking the variables
-console.log(yAxisMultipler)
 console.log(xAxisMultipler)
+console.log(yAxisMultipler)
 console.log(term)
