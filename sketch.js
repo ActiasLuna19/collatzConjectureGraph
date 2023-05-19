@@ -4,9 +4,9 @@ let xAxisMultipler = 40; //The multipler used in the x axis as the scale
 let yAxisMultipler = 10; //The multipler used in the y axis as the scale
 
 const dotSize = 14; //the size of the dots on the graph
-let graphWidth = 960; //The graph's base width
-let graphLength = 675; //The graph's base length
-let aGraphX = 75; //alignment numbers for the graph on the x-axis
+let graphWidth = 1000; //The graph's base width
+let graphLength = 725; //The graph's base length
+let aGraphX = 50; //alignment numbers for the graph on the x-axis
 let aGraphY = 100; //alignment number for the graph on the y-axis
 let graphWidthAdd = graphWidth + aGraphX; //The additional numbers needed to allign the graph properly on the x-axis
 let graphLengthAdd = graphLength + aGraphY; //The additional numbers needed to allign the graph properly on the y-axis
@@ -15,8 +15,8 @@ let barWidth = 370;
 let barLength = graphLength + 75;
 let aBarX = graphWidthAdd + 25;
 let aBarY = aGraphY - 75;
-let aBarTextX = aBarX + 10;
-let aBarTextY = aBarY + 70;
+let aBarListX = aBarX + 10;
+let aBarListY = aBarY + 70;
 
 let termListVer; // multiplier used in listing the terms and their value verticaly
 let termListHorz = [0, 75, 150, 225]; //adjuster values needed to list the terms horzontaly
@@ -47,7 +47,7 @@ function buttonParameters () {
 
 //setting up the canvas
 function setup() {
-  createCanvas(1450, 880);
+  createCanvas(1500, 880);
 }
 
 function draw() {
@@ -56,7 +56,7 @@ function draw() {
   //The Header or Tittle
   textSize(40);
   fill(0);
-  text('The Collatz Conjecture of ' + num, graphWidth - 700, aGraphX - 10);
+  text('The Collatz Conjecture of ' + num, graphWidth - 700, aGraphY - 40);
   
   //The graph background
   fill(255);
@@ -95,7 +95,7 @@ function draw() {
   for(let i= 0; i < term.length; i++) {  
     
     if(termListVer < 30) {
-      text((i + 1) + '. ' + term[i], aBarTextX + termListHorz[k], aBarTextY + (termListVer * 20));
+      text((i + 1) + '. ' + term[i], aBarListX + termListHorz[k], aBarListY + (termListVer * 20));
       termListVer++
     }
     else {
@@ -110,7 +110,6 @@ function draw() {
   else {
     fill(242, 188, 70);
   }
-    
   rect(aButX, aButY, resButWidth, resButLength);
   
   fill(0);
