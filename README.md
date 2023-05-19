@@ -8,3 +8,7 @@ The conjecture states that if the interger is even you divide it by two, if the 
 
 Another name, or nickname, for this conjecture is "the 3n + 1 problem". Wich refers to how you calculate the next interger or term if your current one is odd.
 
+### More about the program
+In this project, the user will input a number and the program will calculate said numbers collatz conjecture. It will then take this result and graph them in a line graph so the user can get a visual repersentation of how the number changed over the conjecture, as well as put the exsact information on each term and its value in the "information bar" on the right side of the screen.
+
+The information bar, along with the information about the terms, will contain a gerneral discription on what the collatz conjecture is, why it is yet to be solved, and at the very bottom a "reset' Button. The "reset" or "test new number" button found in the information bar will completely reset the program so that the user can input a new number they want to test.
