@@ -5,13 +5,13 @@ let yAxisMultipler = 10; //The multipler used in the y axis as the scale
 
 const dotSize = 14; //the size of the dots on the graph
 let graphWidth = 1000; //The graph's base width
-let graphLength = 725; //The graph's base length
+let graphLength = 750; //The graph's base length
 let aGraphX = 50; //alignment numbers for the graph on the x-axis
 let aGraphY = 100; //alignment number for the graph on the y-axis
 let graphWidthAdd = graphWidth + aGraphX; //The additional numbers needed to allign the graph properly on the x-axis
 let graphLengthAdd = graphLength + aGraphY; //The additional numbers needed to allign the graph properly on the y-axis
 
-let barWidth = 370;
+let barWidth = 375;
 let barLength = graphLength + 75;
 let aBarX = graphWidthAdd + 25;
 let aBarY = aGraphY - 75;
@@ -29,11 +29,13 @@ let aButY = barLength - 40; //alignment numbers for the button on the y-axis
 
 
 //changing the multipler(s) depending on how many terms or the highest term value
+
 while((termMax * yAxisMultipler) > graphLength) {
-  yAxisMultipler -= 1;
+  yAxisMultipler -= 0.1;
 }
+
 while((term.length * xAxisMultipler) > graphWidth) {
-  xAxisMultipler -= 1;
+  xAxisMultipler -= 0.1;
 }
 
 //The parameters for the button, used to let the program know when the mouse is over the designated button
@@ -129,3 +131,4 @@ function mouseClicked () {
 console.log(xAxisMultipler)
 console.log(yAxisMultipler)
 console.log(term)
+
