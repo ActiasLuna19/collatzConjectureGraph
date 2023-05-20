@@ -15,26 +15,24 @@ let barWidth = 400; //The info-bars width
 let barLength = graphLength + 75; //the info-bars length
 let aBarX = graphWidthAdd + 25; //allignment numbers for the info-bar on the x-axis
 let aBarY = aGraphY - 75; //allignment numbers for the info-bar on the y-axis
-let aBarTextX = aBarX + 10; //the allignment number used to allign the text in the x-axis in the infobar
-let aBarGenY = aBarY + 60;
-let aBarListY = aBarY + 300;
+let aBarTextX = aBarX + 10; //allignment number used to allign the text in the x-axis in the infobar
+let aBarGenY = aBarY + 65; //allignment number used to allign the information text on the infobar vertically
+let aBarListY = aBarY + 305; //allignment number used to allign the list of terms on the infobar vertivally
 
 const infoBarHist = 'The Collatz Conjecture or the 3n+1 problem is a famous \nunsolved math problem, created and named after \nLothar Collatz who first introduced the idea in 1937.'; //the history of the collatz conjecture
 const infoBarGen = 'The conjecture states that if an integer or term is even it \nis divided by two, and if it is odd then you multiply the \nterm by three and add one. Eventually, according to the \nconjecture, every sequence of terms will eventually \nbecome 1 no matter what positive term is chosen to start.'; //General information about the collatz conjecture
-const infoBarTerms = 'The terms and their related term value for the number \n' + num + ' are listed below:';
+const infoBarTerms = 'The number ' + num + ' has a total of ' + term.length + ' terms, the full terms \nare listed below:';
 
 let termListVer; // multiplier used in listing the terms and their value verticaly
-let termListHorz = [0, 80, 160, 240]; //adjuster values needed to list the terms horzontaly
-let k;
+let termListHorz = [0, 80, 160, 240, 320] //the adjuster values needed to list the terms horzontaly (creates colloums for the terms)
+let k; //adjustment number used to determine which colloum the listed number go in
 
-let resButWidth = 200;
-let resButLength = 50;
+let resButWidth = 200; //The reset buttons width
+let resButLength = 50; //The reset buttons length
 let aButX = aBarX + (barWidth - resButWidth)/2; //alignment numbers for the button on the x-axis
 let aButY = barLength - 40; //alignment numbers for the button on the y-axis
 
-
 //changing the multipler(s) depending on how many terms or the highest term value
-
 while((termMax * yAxisMultipler) > graphLength) {
   yAxisMultipler -= 0.01;
 }
@@ -92,8 +90,8 @@ function draw() {
   rect(aBarX, aBarY, barWidth, barLength);
   
   fill(0);
-  textSize(25);
-  text("Info-bar", aBarX + barWidth/2.7, aBarY + 35);
+  textSize(28);
+  text("Info-bar", aBarX + barWidth/2.7, aBarY + 38);
   
   //General infomation about the collatz conjecture 
   textSize(15);
@@ -102,7 +100,6 @@ function draw() {
   //Listing the terms and there value for the number being tested in the collatz conjecture
   k = 0;
   termListVer = 0;
-  textSize(15);
   for(let i= 0; i < term.length; i++) {  
     
     if(termListVer < 23) {
@@ -135,9 +132,3 @@ function mouseClicked () {
     location.reload();
   }
 }
-
-
-//Checking the variables
-console.log(xAxisMultipler)
-console.log(yAxisMultipler)
-console.log(term)
