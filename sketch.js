@@ -17,7 +17,7 @@ let aBarX = graphWidthAdd + 25; //allignment numbers for the info-bar on the x-a
 let aBarY = aGraphY - 75; //allignment numbers for the info-bar on the y-axis
 let aBarTextX = aBarX + 10; //allignment number used to allign the text in the x-axis in the infobar
 let aBarGenY = aBarY + 65; //allignment number used to allign the information text on the infobar vertically
-let aBarListY = aBarY + 305; //allignment number used to allign the list of terms on the infobar vertivally
+let aBarListY = aBarY + 300; //allignment number used to allign the list of terms on the infobar vertivally
 
 const infoBarHist = 'The Collatz Conjecture or the 3n+1 problem is a famous \nunsolved math problem, created and named after \nLothar Collatz who first introduced the idea in 1937.'; //the history of the collatz conjecture
 const infoBarGen = 'The conjecture states that if an integer or term is even it \nis divided by two, and if it is odd then you multiply the \nterm by three and add one. Eventually, according to the \nconjecture, every sequence of terms will eventually \nbecome 1 no matter what positive term is chosen to start.'; //General information about the collatz conjecture
