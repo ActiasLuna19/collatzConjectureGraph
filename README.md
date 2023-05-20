@@ -1,5 +1,7 @@
 # collatzConjectureGraph
-A program that takes a number and puts it into a collatz sequence until it reaches 1, and graphs the result on a line graph.
+A program that takes a number and puts it into the collatz conjecture sequence, graphs the result on a line graph, lists the terms on the infobar, and lsits general information about the conjecture.
+
+<p align="center">https://actiasluna19.github.io/collatzConjectureGraph/</p>
 
 ### A quick description of the Collatz Conjecture
 The collatz conjecture is a famously unsolved math problem that states that every possible postive interger will eveuntally become 1.
