@@ -1,5 +1,5 @@
 # collatzConjectureGraph
-A program that takes a number and puts it into the collatz conjecture sequence, graphs the result on a line graph, lists the terms on the infobar, and lsits general information about the conjecture.
+A program that takes a number and puts it into the collatz conjecture sequence, the program will then graphs the result on a line graph and list the terms on the infobar.
 
 <p align="center">https://actiasluna19.github.io/collatzConjectureGraph/</p>
 
