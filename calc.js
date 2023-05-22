@@ -1,6 +1,5 @@
 //variable declariation for calculations and (some) graph drawing
-let num = 39;
-//let num = prompt('Please write the number you wish to test'); //The number given by the user
+let num = prompt('Please write the number you wish to test'); //The number given by the user
 let calcNum = num; //The number used in conjecture, the first term is the same as the given number
 const failsafe = 115; //the failsafe so the info-bar wont overflow the sides
 let term = [num]; //What term of the conjecture we are on, and the value of that term. Starts with the given number as term 0
