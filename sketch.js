@@ -73,44 +73,14 @@ function draw() {
   line(aGraphX, aGraphY, aGraphX, graphLengthAdd); // y-axis
   line(aGraphX, graphLengthAdd, graphWidthAdd, graphLengthAdd); //x-axis
   
-  for(let i = 0; i <= term.length; i++) {
-    
-    //the line connecting the dots
-    strokeWeight(2);
-    line(aGraphX + (i * xAxisMultipler),  graphLengthAdd - (term[i] * yAxisMultipler), aGraphX + (( i+ 1) * xAxisMultipler), graphLengthAdd - (term[i + 1] * yAxisMultipler));
-    
-    //The dot, term in relation to term value
-    strokeWeight(1);
-    fill(242, 188, 70);
-    ellipse(aGraphX + (i * xAxisMultipler), graphLengthAdd - (term[i] * yAxisMultipler), dotSize);
-  }
-  
   //The info bar on the right
   fill(247, 223, 178);
+  strokeWeight(1);
   rect(aBarX, aBarY, barWidth, barLength);
   
   fill(0);
   textSize(28);
   text("Info-bar", aBarX + barWidth/2.7, aBarY + 38);
-  
-  //General infomation about the collatz conjecture 
-  textSize(15);
-  text(infoBarHist + '\n\n' + infoBarGen + '\n\n' + infoBarTerms, aBarTextX, aBarGenY);
-  
-  //Listing the terms and there value for the number being tested in the collatz conjecture
-  k = 0;
-  termListVer = 0;
-  for(let i= 0; i < term.length; i++) {  
-    
-    if(termListVer < 23) {
-      text((i + 1) + '. ' + term[i], aBarTextX + termListHorz[k], aBarListY + (termListVer * 20));
-      termListVer++
-    }
-    else {
-      k++;
-      termListVer = 0;
-    }
-  }
   
   //the "reset" button visuals on the bottom
   if(buttonParameters()) {
@@ -124,9 +94,47 @@ function draw() {
   fill(0);
   textSize(20);
   text('Test New Number', aButX + 20, aButY + 32);
+  
+  //The actual graph visuals
+  for(let i = 0; i <= term.length; i++) {
+    //the line connecting the dots
+    strokeWeight(2);
+    line(aGraphX + (i * xAxisMultipler),  graphLengthAdd - (term[i] * yAxisMultipler), aGraphX + (( i+ 1) * xAxisMultipler), graphLengthAdd - (term[i + 1] * yAxisMultipler));
+    
+    //The dot, term in relation to term value
+    strokeWeight(1);
+    fill(242, 188, 70);
+    ellipse(aGraphX + (i * xAxisMultipler), graphLengthAdd - (term[i] * yAxisMultipler), dotSize);
+  }
+  
+  //General infomation about the collatz conjecture 
+  textSize(15);
+  fill(0);
+  text(infoBarHist + '\n\n' + infoBarGen + '\n\n' + infoBarTerms, aBarTextX, aBarGenY);
+  
+  
+  //Listing the terms and there value for the number being tested in the collatz conjecture
+  k = 0;
+  termListVer = 0;
+  for(let i= 0; i < term.length; i++) {  
+    
+    if(termListVer < 23) {
+      text((i + 1) + '. ' + term[i], aBarTextX + termListHorz[k], aBarListY + (termListVer * 20));
+      termListVer++
+    }
+    else {
+      k++;
+      termListVer = 0;
+      
+       text((i + 1) + '. ' + term[i], aBarTextX + termListHorz[k], aBarListY + (termListVer * 20));
+      termListVer++
+    }
+  }
+  
 }
 
 //Checks to see if the button is clicked, and if it was then the page reloads (this will restart the program)
+
 function mouseClicked () {
   if(buttonParameters()) {
     location.reload();
