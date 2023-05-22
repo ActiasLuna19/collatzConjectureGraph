@@ -37,7 +37,6 @@ let aButY = barLength - 40; //alignment numbers for the button on the y-axis
 while((termMax * yAxisMultipler) > graphLength) {
   yAxisMultipler -= 0.01;
 }
-
 while((term.length * xAxisMultipler) > graphWidth) {
   xAxisMultipler -= 0.01;
 }
@@ -51,6 +50,9 @@ function buttonParameters () {
 
 }
 
+function preload () {
+  numberImage = ("Numbers.avif");
+}
 //setting up the canvas
 function setup() {
   createCanvas(1500, 880);
@@ -135,7 +137,11 @@ function draw() {
     }
   }
   else {
-    //General infomation about the collatz conjecture + 
+    //Fills the empty space of the graph (since there are to many terms)
+    textSize(22);
+    text('There is nothing here! Try testing a new number', graphWidthAdd/3.1, graphLengthAdd/4);
+    
+    //General infomation about the collatz conjecture + info on failed calculations
     textSize(15);
     fill(0);
     text(infoBarHist + '\n\n' + infoBarGen + '\n\n' + termsFailed, aBarTextX, aBarGenY);
