@@ -21,7 +21,8 @@ let aBarListY = aBarY + 300; //allignment number used to allign the list of term
 
 const infoBarHist = 'The Collatz Conjecture or the 3n+1 problem is a famous \nunsolved math problem, created and named after \nLothar Collatz who first introduced the idea in 1937.'; //the history of the collatz conjecture
 const infoBarGen = 'The conjecture states that if an integer or term is even it \nis divided by two, and if it is odd then you multiply the \nterm by three and add one. Eventually, according to the \nconjecture, every sequence of terms will eventually \nbecome 1 no matter what positive term is chosen to start.'; //General information about the collatz conjecture
-const infoBarTerms = 'The number ' + num + ' has a total of ' + term.length + ' terms, the full terms \nare listed below:';
+const infoBarTerms = 'The number ' + num + ' has a total of ' + term.length + ' terms, the full terms \nare listed below:'; //Gives general information about the number being tested (the amount of terms)
+const termsFailed = 'The number ' + num + ' exceeds the amount of terms that \nthis program can list. Please choose a different number'; //Text for when the amount of terms needed to calculate the conjecture exceeds the failsafe (due to limmited space)
 
 let termListVer; // multiplier used in listing the terms and their value verticaly
 let termListHorz = [0, 80, 160, 240, 320] //the adjuster values needed to list the terms horzontaly (creates colloums for the terms)
@@ -95,42 +96,50 @@ function draw() {
   textSize(20);
   text('Test New Number', aButX + 20, aButY + 32);
   
-  //The actual graph visuals
-  for(let i = 0; i <= term.length; i++) {
-    //the line connecting the dots
-    strokeWeight(2);
-    line(aGraphX + (i * xAxisMultipler),  graphLengthAdd - (term[i] * yAxisMultipler), aGraphX + (( i+ 1) * xAxisMultipler), graphLengthAdd - (term[i + 1] * yAxisMultipler));
-    
-    //The dot, term in relation to term value
-    strokeWeight(1);
-    fill(242, 188, 70);
-    ellipse(aGraphX + (i * xAxisMultipler), graphLengthAdd - (term[i] * yAxisMultipler), dotSize);
-  }
-  
-  //General infomation about the collatz conjecture 
-  textSize(15);
-  fill(0);
-  text(infoBarHist + '\n\n' + infoBarGen + '\n\n' + infoBarTerms, aBarTextX, aBarGenY);
-  
-  
-  //Listing the terms and there value for the number being tested in the collatz conjecture
-  k = 0;
-  termListVer = 0;
-  for(let i= 0; i < term.length; i++) {  
-    
-    if(termListVer < 23) {
-      text((i + 1) + '. ' + term[i], aBarTextX + termListHorz[k], aBarListY + (termListVer * 20));
-      termListVer++
+  //the graph and infobar when the terms length are less than the failsafe/limit (if) or greater than the failsafe/limit (else)
+  if(term.length < failsafe) {
+    //The actual graph visuals
+    for(let i = 0; i <= term.length; i++) {
+      //the line connecting the dots
+      strokeWeight(2);
+      line(aGraphX + (i * xAxisMultipler),  graphLengthAdd - (term[i] * yAxisMultipler), aGraphX + (( i+ 1) * xAxisMultipler), graphLengthAdd - (term[i + 1] * yAxisMultipler));
+
+      //The dot, term in relation to term value
+      strokeWeight(1);
+      fill(242, 188, 70);
+      ellipse(aGraphX + (i * xAxisMultipler), graphLengthAdd - (term[i] * yAxisMultipler), dotSize);
     }
-    else {
-      k++;
-      termListVer = 0;
-      
-       text((i + 1) + '. ' + term[i], aBarTextX + termListHorz[k], aBarListY + (termListVer * 20));
-      termListVer++
+
+    //General infomation about the collatz conjecture + info about the terms
+    textSize(15);
+    fill(0);
+    text(infoBarHist + '\n\n' + infoBarGen + '\n\n' + infoBarTerms, aBarTextX, aBarGenY);
+
+
+    //Listing the terms and there value for the number being tested in the collatz conjecture
+    k = 0;
+    termListVer = 0;
+    for(let i= 0; i < term.length; i++) {  
+
+      if(termListVer < 23) {
+        text((i + 1) + '. ' + term[i], aBarTextX + termListHorz[k], aBarListY + (termListVer * 20));
+        termListVer++
+      }
+      else {
+        k++;
+        termListVer = 0;
+
+         text((i + 1) + '. ' + term[i], aBarTextX + termListHorz[k], aBarListY + (termListVer * 20));
+        termListVer++
+      }
     }
   }
-  
+  else {
+    //General infomation about the collatz conjecture + 
+    textSize(15);
+    fill(0);
+    text(infoBarHist + '\n\n' + infoBarGen + '\n\n' + termsFailed, aBarTextX, aBarGenY);
+  }
 }
 
 //Checks to see if the button is clicked, and if it was then the page reloads (this will restart the program)
