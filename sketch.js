@@ -139,7 +139,7 @@ function draw() {
   else {
     //Fills the empty space of the graph (since there are to many terms)
     textSize(22);
-    text('There is nothing here! Try testing a new number', graphWidthAdd/3.1, graphLengthAdd/4);
+    text('The number you choose exceeds the number of \n  itterations I can list, try testing a new number!', graphWidthAdd/3.1, graphLengthAdd/4);
     
     //General infomation about the collatz conjecture + info on failed calculations
     textSize(15);
