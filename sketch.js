@@ -22,7 +22,7 @@ let aBarListY = aBarY + 300; //allignment number used to allign the list of term
 const infoBarHist = 'The Collatz Conjecture or the 3n+1 problem is a famous \nunsolved math problem, created and named after \nLothar Collatz who first introduced the idea in 1937.'; //the history of the collatz conjecture
 const infoBarGen = 'The conjecture states that if an integer or term is even it \nis divided by two, and if it is odd then you multiply the \nterm by three and add one. Eventually, according to the \nconjecture, every sequence of terms will eventually \nbecome 1 no matter what positive term is chosen to start.'; //General information about the collatz conjecture
 const infoBarTerms = 'The number ' + num + ' has a total of ' + term.length + ' terms, the full terms \nare listed below:'; //Gives general information about the number being tested (the amount of terms)
-const termsFailed = 'The number ' + num + ' exceeds the amount of terms that \nthis program can list. Please choose a different number'; //Text for when the amount of terms needed to calculate the conjecture exceeds the failsafe (due to limmited space)
+const termsFailed = 'The number ' + num + ' exceeds the amount of terms \nthat this program can list, however the number of terms \nit contains is ' + term.length + '. Please choose a different number'; //Text for when the amount of terms needed to calculate the conjecture exceeds the failsafe (due to limmited space)
 
 let termListVer; // multiplier used in listing the terms and their value verticaly
 let termListHorz = [0, 80, 160, 240, 320] //the adjuster values needed to list the terms horzontaly (creates colloums for the terms)
